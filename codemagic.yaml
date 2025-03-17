@@ -1,9 +1,21 @@
 workflows:
+  sample-workflow:
+    name: Codemagic Sample Workflow
+    max_build_duration: 120
+    instance_type: mac_mini_m2
 
-    sample-workflow:
+    environment:
+      flutter: stable  # מגדיר את גרסת Flutter
+      xcode: latest  # מגדיר את גרסת Xcode
 
-        name: Codemagic Sample Workflow
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get  # טוען את כל התלויות
 
-        max_build_duration: 120
+      - name: Build iOS app
+        script: |
+          flutter build ios --release --no-codesign  # בונה את הפרויקט ל-iOS
 
-        instance_type: mac_mini_m2
+    artifacts:
+      - build/ios/iphoneos/*.app  # מציין היכן נמצאים קבצי ההרצה

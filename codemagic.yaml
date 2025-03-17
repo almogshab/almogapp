@@ -5,17 +5,17 @@ workflows:
     instance_type: mac_mini_m2
 
     environment:
-      flutter: stable  # מגדיר את גרסת Flutter
-      xcode: latest  # מגדיר את גרסת Xcode
+      flutter: stable
+      xcode: latest
 
     scripts:
       - name: Install dependencies
         script: |
-          flutter pub get  # טוען את כל התלויות
+          flutter pub get
 
-      - name: Build iOS app
+      - name: Build iOS app for Simulator
         script: |
-          flutter build ios --simulator--no-codesign  # בונה את הפרויקט ל-iOS
+          flutter build ios --simulator
 
     artifacts:
-      - build/ios/iphoneos/*.app  # מציין היכן נמצאים קבצי ההרצה
+      - build/ios/iphonesimulator/*.app

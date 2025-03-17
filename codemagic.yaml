@@ -15,7 +15,7 @@ workflows:
 
       - name: Build iOS app
         script: |
-          flutter build ios --release --no-codesign  # בונה את הפרויקט ל-iOS
+          flutter build ios --simulator--no-codesign  # בונה את הפרויקט ל-iOS
 
     artifacts:
       - build/ios/iphoneos/*.app  # מציין היכן נמצאים קבצי ההרצה
